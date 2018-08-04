@@ -1,0 +1,1 @@
+This project will be an attempt to convert a *very* old C++ football PoC into a full fledged C# monogame based game
