@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -50,8 +51,10 @@ namespace FootballGame
             this.Attrib = new PlayerAttributes();
         }
 
-        public void Load(GameFile file)
+        public void Load(string directory, string name)
         {
+            var file = new GameFile(Path.Combine(directory, $"Players\\{name}.txt"));
+
             this.FirstName = file.ReadLine();
             this.LastName = file.ReadLine();
             this.Age = int.Parse(file.ReadLine());

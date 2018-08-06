@@ -9,32 +9,30 @@ namespace FootballGame.Framework
 {
     public class GameFile
     {
-        private string filename;
+        private int pos;
+        private string[] entries;
 
 
         public GameFile(string filename)
         {
-            this.filename = filename;
+            this.pos = 0;
+            this.entries = File.ReadAllLines(filename)
+                .Where(s => !String.IsNullOrEmpty(s))
+                .Where(s => !s.StartsWith("/"))
+                .ToArray();
         }
 
 
         public string ReadLine()
         {
-            throw new NotImplementedException();
+            return this.entries[pos++];
         }
 
         public string[] ReadParams()
         {
-            throw new NotImplementedException();
-        }
+            var line = this.ReadLine();
 
-
-        public string[] ReadAllEntries()
-        {
-            return File.ReadAllLines(this.filename)
-                .Where(s => !String.IsNullOrEmpty(s))
-                .Where(s => !s.StartsWith("/"))
-                .ToArray();
+            return line.Split(new char[] { ',' }).Select(s => s.Trim()).ToArray();
         }
     }
 }

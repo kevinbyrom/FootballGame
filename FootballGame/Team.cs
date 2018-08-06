@@ -78,10 +78,16 @@ namespace FootballGame
             // Load playbooks, roster and depth charts
             
             this.Playbooks[OFFENSE] = new Playbook();
-            this.Playbooks[OFFENSE].Load("", team);
+            this.Playbooks[OFFENSE].Load("Playbooks\\Offensive\\", team);
 
             this.Playbooks[DEFENSE] = new Playbook();
-            this.Playbooks[DEFENSE].Load("", team);
+            this.Playbooks[DEFENSE].Load("Playbooks\\Offensive\\", team);
+
+            this.Roster = new Roster();
+            this.Roster.Load(directory, team);
+
+            this.DepthChart = new DepthChart();
+            this.DepthChart.Load(directory, team);
 
             throw new NotImplementedException();
         }

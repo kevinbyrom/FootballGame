@@ -161,8 +161,8 @@ namespace FootballGame
             // Setup vpads
             // Load all assets
 
-            this.FieldMap.Create(FieldTiles, 120, 30, 20, 20);
-            this.FieldMap.SetSprite(this.Teams[HOME].FieldSpr);
+            //this.FieldMap.Create(FieldTiles, 120, 30, 20, 20);
+            //this.FieldMap.SetSprite(this.Teams[HOME].FieldSpr);
 
 
             // Set the stage to title screen
