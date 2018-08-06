@@ -4,7 +4,7 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/kevin/code/src/github.com/kevinbyrom/FootballGame/FootballGame/Content/Ball.png</File>
-    <File>C:/Users/kevin/code/src/github.com/kevinbyrom/FootballGame/FootballGame/Content/Icons.png</File>
+    <File>/Users/kbyrom/code/src/github.com/kevinbyrom/FootballGame/FootballGame/Content/Ball.png</File>
+    <File>/Users/kbyrom/code/src/github.com/kevinbyrom/FootballGame/FootballGame/Content/Icons.png</File>
   </SourceFiles>
 </SourceFileCollection>
