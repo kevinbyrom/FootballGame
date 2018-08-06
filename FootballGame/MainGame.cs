@@ -13,7 +13,9 @@ namespace FootballGame
     public class MainGame : Game
     {
         const int NUM_SIDES = 2;
-
+        const int HOME = 0;
+        const int AWAY = 1;
+        
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
@@ -111,6 +113,9 @@ namespace FootballGame
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
+
+            this.BallTexture = Content.Load<Texture2D>("ball");
+            this.IconTexture = Content.Load<Texture2D>("icons");
         }
 
         /// <summary>
@@ -155,9 +160,14 @@ namespace FootballGame
         {
             // Setup vpads
             // Load all assets
+
+            this.FieldMap.Create(FieldTiles, 120, 30, 20, 20);
+            this.FieldMap.SetSprite(this.Teams[HOME].FieldSpr);
+
+
             // Set the stage to title screen
 
-            OpenTitleScreenStage();
+            //OpenTitleScreenStage();
         }
 
         public void Closing()
@@ -181,7 +191,7 @@ namespace FootballGame
 
         }
 
-        public void OpenBeginGameStage() { SetStage(BeginGameStage); }
+        /*public void OpenBeginGameStage() { SetStage(BeginGameStage); }
         public void OpenCoinTossStage() { SetStage(CoinTossStage); }
         public void OpenCheckTimeStage() { SetStage(CheckTimeStage); }
         public void OpenEndGameStage() { SetStage(EndGameStage); }
@@ -194,6 +204,6 @@ namespace FootballGame
         public void OpenSelectTeamStage() { SetStage(SelectTeamStage); }
         public void OpenTitleScreenStage() { SetStage(TitleScreenStage); }
         public void OpenTouchdownStage() { SetStage(TouchdownStage); }
-        public void OpenTurnOverStage() { SetStage(TurnOverStage); }
+        public void OpenTurnOverStage() { SetStage(TurnOverStage); }*/
     }
 }
