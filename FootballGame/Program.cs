@@ -13,8 +13,8 @@ namespace FootballGame
         [STAThread]
         static void Main()
         {
-            using (var game = new MainGame())
-                game.Run();
+            using (MainGame.Instance = new MainGame())
+                MainGame.Instance.Run();
         }
     }
 }

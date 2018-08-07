@@ -36,9 +36,9 @@ namespace FootballGame
                 PlayerInfo[pos].InPlay = false;
         }
 
-        public void Load(string directory, string filename)
+        public void Load(string name)
         {
-            var file = new GameFile(Path.Combine(directory, $"Rosters\\{filename}.txt"));
+            var file = new GameFile($"Rosters\\{name}.txt");
 
             // Read the number of players
 
@@ -49,9 +49,9 @@ namespace FootballGame
 
             for (int i = 0; i < this.NumPlayers; i++)
             {
-                var text = file.ReadLine();
+                var playerName = file.ReadLine();
 
-                this.PlayerInfo[i].Load(directory, text);
+                this.PlayerInfo[i].Load(playerName);
             }
         }
     }

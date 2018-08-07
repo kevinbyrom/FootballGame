@@ -4,18 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using FootballGame.Framework;
 
 
-namespace FootballGame.Entities
+namespace FootballGame.GameStages
 {
-    public class Player
+    public class PlayStage : StageBase
     {
-        public Player()
+        public PlayStage(MainGame game) : base(game)
         {
 
         }
 
-        public void Update(GameTime gameTime)
+        public override void Update(GameTime gameTime)
         {
 
         }

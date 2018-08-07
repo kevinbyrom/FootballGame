@@ -51,9 +51,9 @@ namespace FootballGame
             this.Attrib = new PlayerAttributes();
         }
 
-        public void Load(string directory, string name)
+        public void Load(string name)
         {
-            var file = new GameFile(Path.Combine(directory, $"Players\\{name}.txt"));
+            var file = new GameFile($"Players\\{name}.txt");
 
             this.FirstName = file.ReadLine();
             this.LastName = file.ReadLine();

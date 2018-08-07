@@ -34,9 +34,9 @@ namespace FootballGame
         }
 
 
-        public void Load(string directory, string team)
+        public void Load(string team)
         {
-            var file = new GameFile(Path.Combine(directory, $"Depth\\{team}.txt"));
+            var file = new GameFile($"Depth\\{team}.txt");
 
             for (int i = 0; i < NUM_DEPTH_TYPES; i++)
             {

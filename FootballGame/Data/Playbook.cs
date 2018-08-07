@@ -25,9 +25,9 @@ namespace FootballGame
             this.Plays = new Play[MAX_FORMATIONS, MAX_PLAYS];
         }
 
-        public void Load(string directory, string filename)
+        public void Load(string name)
         {
-            var file = new GameFile(Path.Combine(directory, $"Rosters\\{filename}.txt"));
+            var file = new GameFile($"Playbooks\\{name}.txt");
 
             // Read the number of formations
 

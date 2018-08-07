@@ -30,8 +30,8 @@ namespace FootballGame
         public string Name;
         public string GraphicFilename;
         public PlayerObjFlags[] PlayerFlags;
-        public Actions[] PreHikeActions;
-        public Actions[] PostHikeActions;
+        public GameActions[] PreHikeActions;
+        public GameActions[] PostHikeActions;
 
 
         public Play()
@@ -39,8 +39,8 @@ namespace FootballGame
             this.Name = null;
             this.GraphicFilename = null;
             this.PlayerFlags = new PlayerObjFlags[MAX_SIDE_PLAYERS];
-            this.PreHikeActions = new Actions[MAX_SIDE_PLAYERS];
-            this.PostHikeActions = new Actions[MAX_SIDE_PLAYERS];
+            this.PreHikeActions = new GameActions[MAX_SIDE_PLAYERS];
+            this.PostHikeActions = new GameActions[MAX_SIDE_PLAYERS];
         }
 
 
@@ -81,7 +81,7 @@ namespace FootballGame
 
                 // Read each prehike action
 
-                this.PreHikeActions[i] = new Actions();
+                this.PreHikeActions[i] = new GameActions();
 
                 var numActions = int.Parse(file.ReadLine());
 
@@ -97,12 +97,12 @@ namespace FootballGame
                         int.Parse(actionParams[1]),
                         float.Parse(actionParams[2]),
                         float.Parse(actionParams[3]),
-                        float.Parse(actionParams[4]);
+                        float.Parse(actionParams[4]));
                 }
 
                 // Read each post action
 
-                this.PostHikeActions[i] = new Actions();
+                this.PostHikeActions[i] = new GameActions();
 
                 numActions = int.Parse(file.ReadLine());
 
@@ -118,7 +118,7 @@ namespace FootballGame
                         int.Parse(actionParams[1]),
                         float.Parse(actionParams[2]),
                         float.Parse(actionParams[3]),
-                        float.Parse(actionParams[4]);
+                        float.Parse(actionParams[4]));
                 }
             }
         }

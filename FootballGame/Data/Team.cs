@@ -52,14 +52,12 @@ namespace FootballGame
             this.DepthChart = new DepthChart();
         }
 
-        public void Load(string directory, string team, bool hometeam)
+        public void Load(string name, bool isHome)
         {
 
             // Load the gamefile
 
-            string filename = Path.Combine(directory, $"TEAMS\\{team}.txt");
-
-            GameFile file = new GameFile(filename);
+            GameFile file = new GameFile(Path.Combine($"TEAMS\\{name}.txt"));
 
             
             // Load details
@@ -71,25 +69,23 @@ namespace FootballGame
             
             // Load texture names
 
-            this.PlayerTextureName = String.Format("{0}_{1}", team, hometeam ? "home" : "away");
-            this.FieldTextureName = $"{team}_field";
+            this.PlayerTextureName = String.Format("{0}_{1}", name, isHome ? "home" : "away");
+            this.FieldTextureName = $"{name}_field";
 
 
             // Load playbooks, roster and depth charts
             
             this.Playbooks[OFFENSE] = new Playbook();
-            this.Playbooks[OFFENSE].Load("Playbooks\\Offensive\\", team);
+            this.Playbooks[OFFENSE].Load("Offensive\\" + name);
 
             this.Playbooks[DEFENSE] = new Playbook();
-            this.Playbooks[DEFENSE].Load("Playbooks\\Offensive\\", team);
+            this.Playbooks[DEFENSE].Load("Defensive\\" + name);
 
             this.Roster = new Roster();
-            this.Roster.Load(directory, team);
+            this.Roster.Load(name);
 
             this.DepthChart = new DepthChart();
-            this.DepthChart.Load(directory, team);
-
-            throw new NotImplementedException();
+            this.DepthChart.Load(name);
         }
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using FootballGame.Framework;
 using FootballGame.Entities;
+using FootballGame.GameStages;
 
 
 namespace FootballGame
@@ -12,6 +13,8 @@ namespace FootballGame
     /// </summary>
     public class MainGame : Game
     {
+        static public MainGame Instance;
+
         const int NUM_SIDES = 2;
         const int HOME = 0;
         const int AWAY = 1;
@@ -37,6 +40,21 @@ namespace FootballGame
         public Texture2D IconTexture;
         public Texture2D[] PlayerTexture;
         public Texture2D FontTexture;
+
+        BeginGameStage BeginGameStage;
+        CheckTimeStage CheckTimeStage;
+        CoinTossStage CoinTossStage;
+        EndGameStage EndGameStage;
+        FirstDownStage FirstDownStage;
+        HalfTimeStage HalfTimeStage;
+        PlayStage PlayStage;
+        SelectGameModeStage SelectGameModeStage;
+        SelectInputStage SelectInputStage;
+        SelectPlayStage SelectPlayStage;
+        SelectTeamStage SelectTeamStage;
+        TitleScreenStage TitleScreenStage;
+        TouchdownStage TouchdownStage;
+        TurnOverStage TurnOverStage;
 
 
         //  -ENDZONE- / -0 TO 10- / -10 TO 20- / -20 TO 30- / -30 TO 40- / -40 TO 50- / -50 TO 40- / -40 TO 30- / -30 TO 20- / -20 TO 10- / -10 TO 0- / -ENDZONE-
@@ -88,6 +106,21 @@ namespace FootballGame
             this.ShadowDispList = new DisplayList();
             this.VPads = new VPad[NUM_SIDES];
             this.MsgMgr = new MessageManager();
+
+            this.BeginGameStage = new BeginGameStage(this);
+            this.CheckTimeStage = new CheckTimeStage(this);
+            this.CoinTossStage = new CoinTossStage(this);
+            this.EndGameStage = new EndGameStage(this);
+            this.FirstDownStage = new FirstDownStage(this);
+            this.HalfTimeStage = new HalfTimeStage(this);
+            this.PlayStage = new PlayStage(this);
+            this.SelectGameModeStage = new SelectGameModeStage(this);
+            this.SelectInputStage = new SelectInputStage(this);
+            this.SelectPlayStage = new SelectPlayStage(this);
+            this.SelectTeamStage = new SelectTeamStage(this);
+            this.TitleScreenStage = new TitleScreenStage(this);
+            this.TouchdownStage = new TouchdownStage(this);
+            this.TurnOverStage = new TurnOverStage(this);
         }
 
         /// <summary>
@@ -101,6 +134,7 @@ namespace FootballGame
             // TODO: Add your initialization logic here
 
             base.Initialize();
+            Opening();
         }
 
         /// <summary>
@@ -167,7 +201,7 @@ namespace FootballGame
 
             // Set the stage to title screen
 
-            //OpenTitleScreenStage();
+            OpenTitleScreenStage();
         }
 
         public void Closing()
@@ -191,7 +225,7 @@ namespace FootballGame
 
         }
 
-        /*public void OpenBeginGameStage() { SetStage(BeginGameStage); }
+        public void OpenBeginGameStage() { SetStage(BeginGameStage); }
         public void OpenCoinTossStage() { SetStage(CoinTossStage); }
         public void OpenCheckTimeStage() { SetStage(CheckTimeStage); }
         public void OpenEndGameStage() { SetStage(EndGameStage); }
@@ -204,6 +238,6 @@ namespace FootballGame
         public void OpenSelectTeamStage() { SetStage(SelectTeamStage); }
         public void OpenTitleScreenStage() { SetStage(TitleScreenStage); }
         public void OpenTouchdownStage() { SetStage(TouchdownStage); }
-        public void OpenTurnOverStage() { SetStage(TurnOverStage); }*/
+        public void OpenTurnOverStage() { SetStage(TurnOverStage); }
     }
 }
