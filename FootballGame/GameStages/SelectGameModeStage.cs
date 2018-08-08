@@ -18,7 +18,7 @@ namespace FootballGame.GameStages
 
         public override void Update(GameTime gameTime)
         {
-
+            MainGame.Instance.OpenSelectTeamStage();
         }
     }
 }

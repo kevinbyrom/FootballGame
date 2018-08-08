@@ -41,6 +41,7 @@ namespace FootballGame
         public Texture2D[] PlayerTexture;
         public Texture2D FontTexture;
 
+        IStage CurrStage;
         BeginGameStage BeginGameStage;
         CheckTimeStage CheckTimeStage;
         CoinTossStage CoinTossStage;
@@ -171,7 +172,8 @@ namespace FootballGame
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
                 Exit();
 
-            // TODO: Add your update logic here
+            if (this.CurrStage != null)
+                this.CurrStage.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -222,7 +224,12 @@ namespace FootballGame
 
         public void SetStage(IStage stage)
         {
+            if (this.CurrStage != null)
+                this.CurrStage.Closing(stage);
 
+            stage.Opening();
+
+            this.CurrStage = stage;
         }
 
         public void OpenBeginGameStage() { SetStage(BeginGameStage); }
